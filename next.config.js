@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// next.config.js — CR AudioViz AI Platform Standard — Updated: 2026-03-15
 const nextConfig = {
   reactStrictMode: true,
   typescript: { ignoreBuildErrors: true },
@@ -11,5 +12,4 @@ const nextConfig = {
     ],
   },
 };
-
 module.exports = nextConfig;
