@@ -3,5 +3,6 @@
   "github": {
     "autoAlias": false,
     "autoJobCancelation": true
-  }
+  },
+  "installCommand": "npm install --legacy-peer-deps"
 }
