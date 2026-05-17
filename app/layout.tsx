@@ -3,8 +3,9 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
-import EcosystemNav from '@/components/ecosystem/EcosystemNav'
-import EcosystemFooter from '@/components/ecosystem/EcosystemFooter'
+import dynamic from 'next/dynamic'
+const EcosystemNav = dynamic(() => import('@/components/ecosystem/EcosystemNav'), { ssr: false })
+const EcosystemFooter = dynamic(() => import('@/components/ecosystem/EcosystemFooter'), { ssr: false })
 
 export const metadata: Metadata = {
   title: 'Javari Social Posts | CR AudioViz AI',
