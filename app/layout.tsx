@@ -1,24 +1,34 @@
-// app/layout.tsx — Javari Social Posts — CR AudioViz AI
-// Updated: 2026-03-15
-import type { Metadata } from 'next';
-import Script from 'next/script';
-import './globals.css';
-import dynamic from 'next/dynamic'
-const EcosystemNav = dynamic(() => import('@/components/ecosystem/EcosystemNav'), { ssr: false })
-const EcosystemFooter = dynamic(() => import('@/components/ecosystem/EcosystemFooter'), { ssr: false })
+// app/layout.tsx — Javari Social
+// Fortune 50 quality — uses AppShell for full ecosystem integration
+// May 17, 2026 — CR AudioViz AI, LLC
+import type { Metadata } from 'next'
+import './globals.css'
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Javari Social Posts | CR AudioViz AI',
-  description: 'AI Social Media Post Generator — Create viral content instantly',
-};
+  title: 'Javari Social | Javari by CR AudioViz AI',
+  description: 'AI social post generator',
+  keywords: 'Javari Social, Javari, AI, CR AudioViz AI',
+}
+
+import AppShell from '@/components/AppShell'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head><meta name="viewport" content="width=device-width, initial-scale=1" /></head>
-      <body className="min-h-screen bg-gray-50">
-        <EcosystemNav appName="Javari Social" />{children}<EcosystemFooter />
-        <Script src="https://javariai.com/embed.js" strategy="lazyOnload" />
+      <body style={{ margin: 0, padding: 0 }}>
+        <AppShell
+          appName="Javari Social"
+          appColor="#ec4899"
+          appEmoji="📱"
+          appDesc="AI social post generator"
+      handoffApp="Javari Email"
+      handoffUrl="https://javari-email-templates.vercel.app"
+      handoffPitch="Social done? Complete your campaign with email →"
+        >
+          {children}
+        </AppShell>
       </body>
     </html>
-  );
+  )
 }
