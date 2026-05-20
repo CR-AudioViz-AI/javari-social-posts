@@ -1,17 +1,56 @@
+// app/layout.tsx — javari-social-posts
+// Server-rendered shell: brand, metadata, EIN, auth CTA in HTML for SEO + production
+// CR AudioViz AI, LLC · EIN: 39-3646201 · May 2026
 import type { Metadata } from 'next'
 import './globals.css'
+
 export const dynamic = 'force-dynamic'
-export const metadata: Metadata = { title: 'Javari Social | AI Social Post Generator', description: 'Generate viral social posts with AI' }
+
+export const metadata: Metadata = {
+  title: 'Javari Social',
+  description: 'AI social content generator — LinkedIn, Twitter/X, Instagram, Facebook posts in seconds.',
+  keywords: ['Javari AI', 'CR AudioViz AI', 'Javari Social', 'artificial intelligence'],
+  authors: [{ name: 'CR AudioViz AI, LLC' }],
+  creator: 'CR AudioViz AI, LLC',
+  publisher: 'CR AudioViz AI, LLC',
+  openGraph: {
+    title: 'Javari Social',
+    description: 'AI social content generator — LinkedIn, Twitter/X, Instagram, Facebook posts in seconds.',
+    siteName: 'Javari Social',
+    type: 'website',
+  },
+  robots: { index: true, follow: true },
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en"><body style={{ margin: 0, padding: 0, background: '#0a0a0f' }}>
-      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, background: 'rgba(7,7,16,0.97)', borderBottom: '1px solid rgba(255,255,255,0.06)', height: 58, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 24px' }}>
-        <a href="https://craudiovizai.com" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', fontWeight: 800, fontSize: 15, color: '#ec4899' }}>🤖 Javari Social</a>
-        <a href="https://craudiovizai.com/auth/signup" style={{ background: 'linear-gradient(135deg,#ec4899,#8b5cf6)', color: 'white', borderRadius: 8, padding: '7px 16px', fontSize: 13, fontWeight: 700, textDecoration: 'none' }}>Get Started Free</a>
-      </nav>
-      <div style={{ height: 58 }} />{children}
-      <footer style={{ background: '#030308', borderTop: '1px solid rgba(255,255,255,0.04)', padding: '24px', textAlign: 'center', color: '#374151', fontSize: 12 }}>
-        © 2026 CR AudioViz AI, LLC — EIN: 39-3646201</footer>
-    </body></html>
+    <html lang="en">
+      <body style={{ margin: 0, padding: 0, fontFamily: 'system-ui, sans-serif' }}>
+        {/* Server-rendered brand bar — visible in HTML, no JS required */}
+        <div style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)', padding: '6px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative', zIndex: 200 }}>
+          <a href="https://craudiovizai.com" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: '#fff', fontSize: 13, fontWeight: 600, opacity: 0.85 }}>
+            <span>📱</span>
+            <span style={{ color: '#8b5cf6' }}>Javari Social</span>
+            <span style={{ color: '#6b7280', fontSize: 11, marginLeft: 4 }}>by CR AudioViz AI · EIN 39-3646201</span>
+          </a>
+          <a href="https://craudiovizai.com/auth/signup" style={{ background: '#8b5cf6', color: '#000', borderRadius: 6, padding: '4px 14px', fontSize: 12, fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            Free to Start →
+          </a>
+        </div>
+        {children}
+        {/* Server-rendered footer — EIN always in HTML */}
+        <footer style={{ background: '#080808', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '20px 24px', textAlign: 'center' }}>
+          <p style={{ color: '#374151', fontSize: 11, margin: '0 0 4px', fontFamily: 'system-ui' }}>
+            © 2026 CR AudioViz AI, LLC — EIN: 39-3646201 · Fort Myers, Florida
+          </p>
+          <p style={{ color: '#1f2937', fontSize: 11, margin: 0, fontFamily: 'system-ui' }}>
+            Your Story. Our Design. Everyone Connects. Everyone Wins. ·{' '}
+            <a href="https://craudiovizai.com" style={{ color: '#374151', textDecoration: 'none' }}>craudiovizai.com</a>
+            {' '}·{' '}
+            <a href="https://craudiovizai.com/auth/signup" style={{ color: '#8b5cf6', textDecoration: 'none', fontWeight: 600 }}>Sign Up Free</a>
+          </p>
+        </footer>
+      </body>
+    </html>
   )
 }
