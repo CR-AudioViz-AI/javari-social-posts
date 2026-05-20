@@ -1,6 +1,6 @@
 'use client'
 import { useState, useRef } from 'react'
-import { getPlatforms, getTones } from '@/lib/config'
+import { getPlatforms, getTones } from '../lib/config'
 
 const _PLATFORMS = getPlatforms()
 const _TONES = getTones()
