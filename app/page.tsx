@@ -32,8 +32,6 @@ export default function SocialPostsPage() {
     setLoading(false)
   }
 
-  const plat = platforms.find(p => p.id === platformId)
-
   return (
     <div style={{ background: '#07080f', minHeight: '100vh', color: '#e2e8f0', fontFamily: 'system-ui, sans-serif' }}>
       <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, background: 'rgba(7,8,15,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(139,92,246,0.15)', height: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 28px' }}>
@@ -81,7 +79,7 @@ export default function SocialPostsPage() {
             </div>
             <button onClick={generate} disabled={loading || !input.trim()}
               style={{ width: '100%', background: loading ? '#1a1428' : 'linear-gradient(135deg,#7c3aed,#5b21b6)', color: loading ? '#374151' : 'white', border: 'none', borderRadius: 10, padding: '12px', fontSize: 14, fontWeight: 700, cursor: loading || !input.trim() ? 'not-allowed' : 'pointer', marginTop: 4 }}>
-              {loading ? 'Writing...' : 'Write ' + (plat ? plat.label + ' Post' : 'Post')}
+              {loading ? 'Writing...' : 'Write ' + (platforms.find(p => p.id === platformId) ? platforms.find(p => p.id === platformId).label + ' Post' : 'Post')}
             </button>
             {error && <p style={{ color: '#ef4444', fontSize: 12, marginTop: 8 }}>⚠ {error}</p>}
           </div>
