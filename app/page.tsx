@@ -2,9 +2,12 @@
 import { useState, useRef } from 'react'
 import { getPlatforms, getTones } from '@/lib/config'
 
+const _PLATFORMS = getPlatforms()
+const _TONES = getTones()
+
 export default function SocialPostsPage() {
-  const platforms = getPlatforms()
-  const tones = getTones()
+  const platforms = _PLATFORMS
+  const tones = _TONES
   const [platformId, setPlatformId] = useState(platforms[0].id)
   const [input, setInput] = useState('')
   const [tone, setTone] = useState('Professional')
