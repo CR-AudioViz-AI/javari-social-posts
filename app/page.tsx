@@ -31,7 +31,8 @@ export default function SocialPostsPage() {
       if (!res.ok || data.error) throw new Error(data.error || 'Generation failed')
       const result = data.result || ''
       setOutput(result)
-      setHistory(prev => [{ platform: platform.label, icon: platform.icon, input: input.slice(0, 60) + (input.length > 60 ? '...' : ''), output: result, ts: new Date().toLocaleTimeString() }, ...prev.slice(0, 9)])
+      const entry = { platform: platform.label, icon: platform.icon, input: input.slice(0, 60), output: result, ts: new Date().toLocaleTimeString() }
+      setHistory(prev => [entry, ...prev.slice(0, 9)])
     } catch (e) { setError(e.message || 'Something went wrong') }
     setLoading(false)
   }
