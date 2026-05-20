@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef } from 'react'
+import { PLATFORMS, TONES, LENGTHS } from '@/lib/config'
 
 const PLATFORMS = [
   { id: 'linkedin_post',     label: 'LinkedIn',          icon: '💼', color: '#0a66c2', hint: 'Professional tone, insights, thought leadership' },
@@ -9,12 +10,8 @@ const PLATFORMS = [
   { id: 'content_calendar',  label: 'Content Calendar',  icon: '📅', color: '#7c3aed', hint: '30-day content plan for your brand' },
 ]
 
-const TONES = ['Professional', 'Casual', 'Inspirational', 'Educational', 'Humorous', 'Urgent']
-const LENGTHS = [
-  { id: 'short',  label: 'Short',  desc: '1-2 paragraphs' },
-  { id: 'medium', label: 'Medium', desc: '3-4 paragraphs' },
-  { id: 'long',   label: 'Long',   desc: 'Full post / thread' },
-]
+
+
 
 export default function SocialPostsPage() {
   const [platform, setPlatform] = useState(PLATFORMS[0])
