@@ -2,17 +2,6 @@
 import { useState, useRef } from 'react'
 import { PLATFORMS, TONES, LENGTHS } from '@/lib/config'
 
-const PLATFORMS = [
-  { id: 'linkedin_post',     label: 'LinkedIn',          icon: '💼', color: '#0a66c2', hint: 'Professional tone, insights, thought leadership' },
-  { id: 'twitter_thread',    label: 'Twitter / X',       icon: '𝕏',  color: '#1d9bf0', hint: 'Punchy threads, hooks, max engagement' },
-  { id: 'instagram_caption', label: 'Instagram',         icon: '📸', color: '#e1306c', hint: 'Visual storytelling, emojis, hashtags' },
-  { id: 'facebook_post',     label: 'Facebook',          icon: '👥', color: '#1877f2', hint: 'Community-focused, conversational, shareable' },
-  { id: 'content_calendar',  label: 'Content Calendar',  icon: '📅', color: '#7c3aed', hint: '30-day content plan for your brand' },
-]
-
-
-
-
 export default function SocialPostsPage() {
   const [platform, setPlatform] = useState(PLATFORMS[0])
   const [input, setInput] = useState('')
